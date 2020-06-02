@@ -1,0 +1,374 @@
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --fade-time: 0.5s;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  background-color: #f5fcec;
+  color: #111;
+  background-image: linear-gradient(90deg, rgba(200,0,0,.5) 50%, transparent 50%),
+linear-gradient(rgba(200,0,0,.5) 50%, transparent 50%);
+  background-size:50px 50px;
+  
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #00a86b;
+  box-shadow: 3px 3px 15px #666;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  max-height: 60px;
+  background-color: #00a86b;
+  display: flex;
+  justify-content: center;
+  opacity: 0.9;
+  z-index: 10;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Sacramento", cursive;
+  text-shadow: 1px 1px 5px #333;
+  color: #fff;
+  line-height: 0;
+}
+
+ul.navbar-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+ul.navbar-list li a {
+  display: block;
+  padding: 20px 10px;
+  text-decoration: none;
+  text-shadow: 1px 1px 5px #333;
+  color: #fff;
+  transition: 0.3s;
+}
+
+ul.navbar-list li a:hover {
+  background-color: #245501;
+  opacity: 1;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+  height: 600px;
+  background-image: url(img/intro-bg.jpg);
+  background-position: center;
+}
+
+.header-container .overlay {
+
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  display: -ms-flexbox;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.title-main {
+  font-size: 8rem;
+  font-family: "Sacramento", cursive;
+  text-shadow: 1px 1px 5px #333;
+  color: #fff;
+}
+
+.header-text {
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 1px 1px 5px #333;
+}
+
+section .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-large {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  border-bottom: 3px solid #c80000;
+}
+
+.row-wrapper {
+  display: flex;
+  border: none;
+  padding: 0;
+}
+
+.feature-item {
+  flex-basis: auto;
+  width: 33%;
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-item img {
+  max-width: 100%;
+}
+
+.title-medium {
+  font-size: 1.3rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.text {
+  text-align: justify;
+}
+
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.image-container img {
+  max-width: 100%;
+}
+
+.menu-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-section {
+  flex-basis: calc(50% - 20px);
+  padding: 10px;
+}
+
+.menu-item {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-item-name {
+  font-weight: 700;
+  flex-basis: 80%;
+}
+
+.menu-item-price {
+  flex-basis: 20%;
+  margin-bottom: 5px;
+}
+
+.main-img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.imgs img {
+  width: 100%;
+  height: 150px;
+}
+
+.imgs {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 5px;
+  -ms-grid-template-columns: repeat(4, 1fr);
+  -ms-grid-template-rows: repeat(3, 1fr);
+  -ms-grid-gap: 5px;
+}
+
+.imgs img {
+  cursor: pointer;
+}
+
+div#contact {
+  width: 100%;
+  background-color: #ff8059;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-element {
+  padding: 30px;
+  margin: 0 50px;
+}
+
+.title-small {
+  font-weight: normal;
+  text-transform: uppercase;
+  border-bottom: 2px solid #00a86b;
+}
+
+.column {
+  width: 50%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.form-item {
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-item label {
+  flex-grow: 1;
+}
+
+.form-item input {
+  flex-basis: 300px;
+  outline: none;
+  border: none;
+  padding: 5px;
+  color: #fff;
+  background-color: rgba(200,0,0,.5);
+  border-bottom: 2px solid rgba(200,0,0,1);
+}
+
+input[type="submit"] {
+  align-self: center;
+  padding: 10px;
+  width: 100px;
+  background-color: rgba(200,0,0,0.5);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 6px #333;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #00a86b;
+  color: #fff;
+}
+
+
+/* tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  height: 20px;
+  background-color: #00a86b;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: -50%;
+  margin-left: -200px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #00a86b transparent transparent transparent;
+}
+
+/* footer */
+
+footer {
+  background-color: rgba(200,0,0,.5);
+}
+
+.contact-container.footer {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.social ul {
+  width: 50%;
+  padding: 0;
+  margin: 10px;
+  display: flex;
+  list-style-type: none;
+}
+
+.social ul li {
+  margin: 10px 30px;
+}
+
+.fa {
+  color: #ff8059;
+}
+
+.fa:hover {
+  transition: 0.3s;
+  color: #00a86b;
+}
+
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn var(--fade-time) ease-in 1 forwards;
+}
+
+/* Do dokończenia */
+@media (max-width: 600px) {
+  .imgs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -189,6 +189,13 @@ section .container {
   margin-bottom: 5px;
 }
 
+.main-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
 .main-img img {
   max-width: 100%;
   max-height: 100%;
@@ -237,10 +244,10 @@ div#contact {
 }
 
 .column {
-  width: 50%;
-  max-width: 500px;
+  width: 80%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin-bottom: 50px;
 }
 
@@ -248,21 +255,31 @@ div#contact {
   margin-bottom: 15px;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .form-item label {
-  flex-grow: 1;
+  flex-basis: 150px;
+  /* flex-grow: 1; */
 }
 
 .form-item input {
-  flex-basis: 300px;
+  flex-grow: 2;
   outline: none;
   border: none;
   padding: 5px;
   color: #fff;
   background-color: rgba(200,0,0,.5);
   border-bottom: 2px solid rgba(200,0,0,1);
+}
+
+.form-item > * ~ span {
+  display: inline-block;
+  flex-basis: 150px;
+  margin-left: 20px;
+  font-size: 12px;
+  width: 100px;
 }
 
 input[type="submit"] {
@@ -285,6 +302,10 @@ input[type="submit"]:hover {
   color: #fff;
 }
 
+.fas.fa-check {
+  color: green;
+}
+
 
 /* tooltip */
 .tooltip {
@@ -295,7 +316,8 @@ input[type="submit"]:hover {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 200px;
-  height: 20px;
+  top: -50px;
+  right: 200%;
   background-color: #00a86b;
   color: #fff;
   text-align: center;
@@ -303,8 +325,6 @@ input[type="submit"]:hover {
   padding: 5px 10px;
   position: absolute;
   z-index: 1000;
-  bottom: 125%;
-  left: -50%;
   margin-left: -200px;
   opacity: 0;
   transition: opacity 0.3s;

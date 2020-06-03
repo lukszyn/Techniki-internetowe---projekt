@@ -1,6 +1,7 @@
 const current = document.querySelector("#current");
 const imgs = document.querySelector(".imgs");
 const img = document.querySelectorAll(".imgs img");
+const menu = document.querySelector('#menu');
 const opacity = 0.6;
 
 //ustawienie przezroczystości pierwszej miniatury
@@ -102,3 +103,13 @@ function addHint(id) {
   }
   
 }
+
+menu.addEventListener('click', () => {
+  let links = document.querySelector('ul.navbar-list')
+  if (links.style.display === "block") {
+    links.style.display = "none";
+  } else {
+    links.style.display = "block";
+  }
+
+})

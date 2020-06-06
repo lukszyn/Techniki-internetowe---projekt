@@ -26,26 +26,27 @@ function imgClick(e) {
   e.target.style.opacity = opacity;
 }
 
-//walidacja formularza
 
+//walidacja formularza
+//dodanie obsługi zdarzenia 'submit'
 document.querySelector('#form').addEventListener('submit', (e) => {
-    console.log(e.target);
-    e.preventDefault();
-    let inputs = document.querySelectorAll('input');
-    for (input of inputs) {
-        let validated = validateInput(input);
-        addInfo(input, validated);
-    }
+  e.preventDefault(); //usunięcie domyślnej obsługi formularza
+  let inputs = document.querySelectorAll('input');
+  for (input of inputs) {
+    let validated = validateInput(input); //zwalidowanie każdego pola formularza
+    addInfo(input, validated); //dodanie informacji o poprawności pola
+  }
 });
 
+
+//dodanie obsługi zdarzenia kliknięcia w pole formularza w celu wyświetlenia wskazówki
 const form = document.querySelectorAll('input');
-console.log(form);
 
 for (let input of form) {
   input.addEventListener("focus", (e) => {
     document.querySelector(`span.${e.target.id}`).style.visibility = "visible";
     document.querySelector(`span.${e.target.id}`).style.opacity = "1";
-    document.querySelector(`span.${e.target.id}`).textContent = addHint(e.target.id);
+    document.querySelector(`span.${e.target.id}`).textContent = addHint(e.target.id); //wyświetlenie chmurki z treścią
   });
 
   input.addEventListener("blur", (e) => {
@@ -55,11 +56,12 @@ for (let input of form) {
 }
 
 function validateInput(input) {
-  
+
+  //walidacja pola wg konkretnego wyrażenia regularnego w zaleznosci od id inputu
   if (input.value == '') {
     return false;
   } else if (input.id == 'submit') {
-    return true;
+    return true; //przycisk submit zwraca zawsze true
   } else {
     let patterns = {
       lastName: /^[A-ZĘÓĄŚŁŻŹĆŃ][a-zęóąśłżźćń]+$/,
@@ -69,41 +71,50 @@ function validateInput(input) {
       city: /^[A-ZĘÓĄŚŁŻŹĆŃ][a-zęóąśłżźćń]+$/,
       email: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     }
-
+    //testowanie inputu z wybranym wyrażeniem regularnym
     if (patterns[input.id].test(input.value)) return true;
     else return false;
 
   }
 }
 
+//dodanie informacji na stronie o tym czy pole formularza zostało poprawnie lub błędnie wypełnione
 function addInfo(input, validated) {
 
-    let selector = "span#" + input.id;
+  let selector = "span#" + input.id;
 
-    if (validated) {
-        document.querySelector(selector).innerHTML = "<i class=\"fas fa-check\"></i>";
-    }
-    else if (!validated && input.value == '') {
-        document.querySelector(selector).innerHTML = "<p>Nie wprowadzono danych!</p>";
-    } else {
-        document.querySelector(selector).innerHTML = "<p>Wprowadzono niepoprawne dane!</p>";
-    }
+  if (validated) {
+    document.querySelector(selector).innerHTML = "<i class=\"fas fa-check\"></i>";
+  } else if (!validated && input.value == '') {
+    document.querySelector(selector).innerHTML = "<p>Nie wprowadzono danych!</p>";
+  } else {
+    document.querySelector(selector).innerHTML = "<p>Wprowadzono niepoprawne dane!</p>";
+  }
 
 }
 
+
+//zwraca treść chmurki w zależności od klikniętego pola
 function addHint(id) {
 
-    switch (id) {
-        case('lastName'): return 'np. Kowalski';
-        case('firstName'): return 'np. Jan';
-        case('email'): return 'przyklad@domena.pl';
-        case('address'): return 'ulica i numer domu/mieszkania';
-        case('zipCode'): return '"XX-XXX"';
-        case('city'): return 'np. Gdańsk';
+  switch (id) {
+    case ('lastName'):
+      return 'np. Kowalski';
+    case ('firstName'):
+      return 'np. Jan';
+    case ('email'):
+      return 'przyklad@domena.pl';
+    case ('address'):
+      return 'ulica i numer domu/mieszkania';
+    case ('zipCode'):
+      return '"XX-XXX"';
+    case ('city'):
+      return 'np. Gdańsk';
   }
-  
+
 }
 
+//zmienia wygląd menu głównego w zależności od wielkości ekranu
 menu.addEventListener('click', () => {
   let links = document.querySelector('ul.navbar-list')
   if (links.style.display === "block") {
